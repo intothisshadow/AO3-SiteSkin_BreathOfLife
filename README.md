@@ -39,9 +39,9 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
 # SCREENSHOTS
 
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot1.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot2.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot3.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot4.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot5.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3_SiteSkin_BreathOfLife/refs/heads/main/screenshot6.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot1.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot2.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot3.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot4.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot5.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot6.jpg)
