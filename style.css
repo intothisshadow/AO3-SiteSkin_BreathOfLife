@@ -431,7 +431,7 @@ a:link.current,
 
 #header {
   background-color: var(--accent-2) !important;
-  background-image: url("https://www.so-obsessed.com/temp/header.jpg") !important;
+  background-image: url("https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/images/header.jpg") !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
