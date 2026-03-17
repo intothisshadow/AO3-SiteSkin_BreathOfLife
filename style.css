@@ -55,13 +55,13 @@
     12.  Comments
     13.  Notices & Alerts
     14.  Front Page (Splash)
-    15.  Footer
-    16.  Index Pages (Media, Fandoms, Collections)
-    17.  Profile & Stats Pages
-    18.  User Profile
-    19.  Reading History
-    20.  Miscellaneous (Scrollbar, Selection, Pre)
-    21. REPLACE THE AO3 ICONS - default color scheme by zerafinacss
+    15.  Index Pages (Media, Fandoms, Collections)
+    16.  Profile & Stats Pages
+    17.  User Profile
+    18.  Reading History
+    19.  Miscellaneous (Scrollbar, Selection, Pre)
+    20.  Footer
+    21.  Replace the AO3 Icons - default color scheme by zerafinacss
    ============================================ */
 
 
@@ -1148,6 +1148,30 @@ dl.meta dd.category a:hover {
 
 /* --- Fandom — vivid purple --- */
 .fandoms a, .fandoms a:visited,
+/* Tag link inside fandom/works count heading —
+   e.g. "6 Works in Dark Skies (TV 1996)"
+   Styled as a fandom pill to match the rest of the tag system. */
+h2.heading a.tag,
+h2.heading a.tag:visited {
+  background: linear-gradient(135deg, var(--tag-fandom-grad-start) 0%, var(--tag-fandom-bg) 100%) !important;
+  border: 1px solid var(--tag-fandom-bg) !important;
+  border-bottom: 1px solid var(--tag-fandom-bg) !important;
+  border-radius: var(--radius-pill) !important;
+  color: var(--tag-fandom-text) !important;
+  display: inline-block !important;
+  font-size: 0.85em !important;
+  font-weight: 600 !important;
+  padding: 2px 10px !important;
+  text-decoration: none !important;
+}
+
+h2.heading a.tag:hover {
+  background: linear-gradient(135deg, var(--tag-fandom-hover-grad-start) 0%, var(--tag-fandom-hover-grad-end) 100%) !important;
+  border-color: var(--tag-fandom-hover-border) !important;
+  color: var(--tag-fandom-hover-text) !important;
+  text-decoration: none !important;
+}
+
 h5.fandoms.heading a, h5.fandoms.heading a:visited,
 dl.meta dd.fandom a {
   background: linear-gradient(135deg, var(--tag-fandom-grad-start) 0%, var(--tag-fandom-bg) 100%) !important;
@@ -1306,11 +1330,12 @@ li.series.blurb .header.module {
   width: 100% !important;
 }
 
-/* p.datetime is a sibling before .header.module in AO3's blurb markup.
-   Absolute-position it into the top-right corner of the header band. */
-li.work.blurb,
-li.bookmark.blurb,
-li.series.blurb {
+/* p.datetime is the last child inside .header.module.
+   Absolutely position it in the top-right corner of the header band.
+   The header module is made position:relative as the anchor. */
+li.work.blurb .header.module,
+li.bookmark.blurb .header.module,
+li.series.blurb .header.module {
   position: relative !important;
 }
 
@@ -1322,9 +1347,22 @@ li.series.blurb p.datetime {
   padding: 0 !important;
   position: absolute !important;
   right: 20px !important;
-  top: 20px !important;
+  top: 14px !important;
   white-space: nowrap !important;
   z-index: 1 !important;
+}
+
+/* Right margin on title/fandom/byline to stop text flowing under the datetime */
+li.work.blurb .header.module h4.heading,
+li.bookmark.blurb .header.module h4.heading,
+li.series.blurb .header.module h4.heading,
+li.work.blurb .header.module h5.fandoms,
+li.bookmark.blurb .header.module h5.fandoms,
+li.series.blurb .header.module h5.fandoms,
+li.work.blurb .header.module .byline,
+li.bookmark.blurb .header.module .byline,
+li.series.blurb .header.module .byline {
+  padding-right: 90px !important;
 }
 
 /* Required-tags icons — float left before the title */
@@ -1337,7 +1375,7 @@ li.series.blurb .header.module ul.required-tags {
   padding: 0 !important;
 }
 
-/* Fandoms, Title — left margin to sit beside the icons, not under them */
+/* Fandoms, Title — left margin to sit beside the icons, not under them. */
 li.work.blurb .header.module h4.heading,
 li.bookmark.blurb .header.module h4.heading,
 li.series.blurb .header.module h4.heading,li.work.blurb .header.module h5.fandoms,
@@ -2841,38 +2879,7 @@ div#main > div.splash,
 
 
 /* ============================================
-   15. FOOTER
-   ============================================ */
-
-/* Jewel-tone gradient footer — purple -> rose-gold -> teal.
-   Richer than the page background to signal end-of-content. */
-#footer {
-  background: linear-gradient(135deg, #561858 0%, #7a3a68 25%, #9a7a60 55%, #3a8898 100%) !important;
-  border-top: 4px solid var(--border-dark) !important;
-  color: var(--accent-2) !important;
-  font-weight: 600 !important;
-}
-
-#footer a, #footer a:visited,
-#footer a:hover {
-  border-bottom: none !important;
-  color: var(--text-on-dark) !important;
-  text-decoration: none !important;
-}
-
-
-/* Footer section headings (Policy, Contact, etc.) — white text on dark background */
-#footer .heading,
-#footer h2, #footer h3, #footer h4,
-#footer ul.navigation.actions li.module.group h4.heading {
-  background: transparent !important;
-  border-bottom: 1px solid var(--border-light) !important;
-  color: var(--text-on-dark) !important;
-}
-
-
-/* ============================================
-   16. INDEX PAGES (Media, Fandoms, Collections)
+   15. INDEX PAGES (Media, Fandoms, Collections)
    ============================================ */
 
 /* Strip the default list markers from the collections grid container */
@@ -3219,7 +3226,7 @@ ul.tags.cloud.index.group li a.cloud8:hover {
 
 
 /* ============================================
-   17. PROFILE & STATS PAGES
+   16. PROFILE & STATS PAGES
    ============================================ */
 
 /* Stats/meta dl — used on profile pages and the wrapper dl on user pages */
@@ -3358,7 +3365,7 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dd dl.sta
    ──────────────────────────────────────────────────────────────────────── */
 
 /* ============================================
-   18. USER PROFILE
+   17. USER PROFILE
    ============================================ */
 
 /* Strip the white box from the user header on dashboard/profile pages */
@@ -3551,7 +3558,7 @@ div.user.profile {
 
 
 /* ============================================
-   19. READING HISTORY
+   18. READING HISTORY
    ============================================ */
 
 /* 'Last visited X days ago' badge shown above each work in reading history.
@@ -3647,7 +3654,7 @@ li.reading.work.blurb.group div.user.module.group ul.actions li {
 
 
 /* ============================================
-   20. MISCELLANEOUS
+   19. MISCELLANEOUS
    ============================================ */
 
 /* Custom scrollbar — Chromium/WebKit only. Firefox uses its own scrollbar
@@ -3677,7 +3684,83 @@ pre {
   padding: 1em 1.2em !important;
   white-space: pre-wrap !important;
 }
+
+/* Required field labels on the post/edit work form.
+   AO3 puts class="required" on the parent dt/dd, not the label.
+   Labels include a literal * in their text. Style the dt label
+   and the legend to match the skin's theme instead of AO3's red. */
+dt.required > label,
+dt.required > label:first-child {
+  color: var(--accent-1-dark) !important;
+  font-weight: 700 !important;
+}
+
+legend.required {
+  color: var(--text-on-dark) !important;
+}
+
+/* "* Required information" notice at the top of the form */
+p.required.notice {
+  background: linear-gradient(135deg, var(--btn-dark-start) 0%, var(--btn-end) 60%, var(--btn-dark-end) 100%) !important;
+  border-left: none !important;
+  border-radius: var(--radius-pill) !important;
+  color: var(--text-on-dark) !important;
+  display: inline-block !important;
+  font-size: 0.85em !important;
+  font-weight: 700 !important;
+  padding: 3px 14px !important;
+}
+
+/* Hide empty paragraphs in chapter text — catches <p></p> and <p> </p>.
+   Note: <p>&nbsp;</p> contains a non-breaking space character so :empty
+   won't match it; use the bookmarklet for those. */
+#chapters p:empty,
+#workskin p:empty {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 /*============================================================
+   20. FOOTER
+   ============================================ */
+
+/* Jewel-tone gradient footer — purple -> rose-gold -> teal.
+   Richer than the page background to signal end-of-content. */
+#footer {
+  background: linear-gradient(135deg, #561858 0%, #7a3a68 25%, #9a7a60 55%, #3a8898 100%) !important;
+  border-top: 4px solid var(--border-dark) !important;
+  color: var(--accent-2) !important;
+  font-weight: 600 !important;
+}
+
+#footer a, #footer a:visited,
+#footer a:hover {
+  border-bottom: none !important;
+  color: var(--text-on-dark) !important;
+  text-decoration: none !important;
+}
+
+/* Fix "by the" text node sitting higher than the links around it. */
+#footer .menu li,
+#footer .menu li a,
+#footer .menu li a:visited {
+  font-size: 0.875em !important;
+  line-height: 1.5 !important;
+  vertical-align: baseline !important;
+}
+
+
+/* Footer section headings (Policy, Contact, etc.) — white text on dark background */
+#footer .heading,
+#footer h2, #footer h3, #footer h4,
+#footer ul.navigation.actions li.module.group h4.heading {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-on-dark) !important;
+}
+
+
+/* ============================================
  * 21. REPLACE THE AO3 ICONS - default color scheme
  * by zerafinacss https://github.com/ZerafinaCSS/Replace-the-AO3-Icons-2.0
  * ============================================================*/

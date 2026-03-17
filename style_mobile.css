@@ -1,0 +1,1204 @@
+/*
+ Theme Name: Breath of Life, mobile add-on - AO3 Site Skin
+ Author: intothisshadow
+ Author URI: https://www.so-obsessed.com
+
+ ============================================
+
+ HOW TO USE:
+ 1. Make a new site skin with the Breath of Life code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
+ 2. Make another new site skin with the code below, selecting "only screen and (max-width: 42em)" and "only screen and (max-width: 62em)" in the Media section, and then choose Breath of Life as the parent skin. Save and active.
+
+ ============================================
+ *
+ * This file contains only mobile-specific overrides.
+ * All base colours, variables, and desktop styles live in
+ * the parent skin.
+ *
+ * Two breakpoints:
+ *   62em — tablet/mobile (matches AO3's own mobile CSS)
+ *   42em — narrow phones (matches AO3's own narrow CSS)
+ *
+ * Table of contents:
+ *   62em block:
+ *     1.  Global / Reset
+ *     2.  Layout — #main, #dashboard
+ *     3.  Header & Primary Navigation
+ *     4.  Greeting / User Menu
+ *     5.  Dropdown Menus
+ *     6.  Module Headings
+ *     7.  Work Blurb Cards
+ *     8.  Tag Pills
+ *     9.  Buttons & Actions
+ *    10.  Work Page — Prose Reading
+ *    11.  Comments
+ *    12.  Forms & Inputs
+ *    13.  Notices & Alerts
+ *    14.  Front Page (Splash)
+ *    15.  Index Pages
+ *    16.  User Profile
+ *    17.  Reading History
+ *    18.  Admin / News Post
+ *    19.  Footer
+ *    20.  Phone — Single Column (max-width: 30em)
+ *   42em block:
+ *     1.  Global / Reset
+ *     2.  Layout
+ *     3.  Dashboard
+ *     4.  Work Blurb Cards
+ *     5.  Tag Pills
+ *     6.  Work Page
+ *     7.  Comments
+ *     8.  Forms & Inputs
+ *     9.  Buttons & Actions
+ *    10.  Front Page (Splash)
+ *    11.  Index Pages
+ *    12.  User Profile
+ * ============================================================ */
+
+@media only screen and (max-width: 62em), handheld {
+
+
+  /* ============================================================
+     1. GLOBAL / RESET
+     ============================================================ */
+
+  /* background-attachment: fixed is broken on iOS Safari and most mobile
+     browsers — re-declare the gradient without it, plus a flat fallback. */
+  html {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    background-color: #e8e4ec !important;
+    background: linear-gradient(to bottom, #f5f0f5 0%, #ede8f0 30%, #e8e4ec 60%, #ddeef2 100%) !important;
+    font-size: 16px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Heading scale — compress large sizes for narrow viewports */
+  #main h1, #content h1 { font-size: 1.7em !important; }
+  #main h2, #content h2 { font-size: 1.4em !important; }
+  #main h3, #content h3 { font-size: 1.2em !important; }
+  #main h4, #content h4 { font-size: 1.05em !important; text-transform: capitalize !important; }
+
+  /* Work title on the fic page */
+  .preface.group h2.title.heading,
+  #workskin h2.title {
+    font-size: 1.25em !important;
+  }
+
+
+  /* ============================================================
+     2. LAYOUT — #main, #dashboard
+     ============================================================ */
+
+  #main, #main.dashboard {
+    float: none !important;
+    margin: auto !important;
+    padding-left: 3.5% !important;
+    padding-right: 3.5% !important;
+    width: auto !important;
+  }
+
+  #dashboard {
+    border-radius: 0.25em !important;
+    clear: both !important;
+    float: none !important;
+    margin: 0.5em 3.5% !important;
+    max-width: 100% !important;
+    padding: 0.25em 0 !important;
+    text-align: left !important;
+    width: auto !important;
+  }
+
+  /* Override desktop skin's display:block on nav list items —
+     on mobile everything flows inline so the bar stays compact */
+  #dashboard ul,
+  #dashboard ul.navigation.actions {
+    border: none !important;
+    display: inline !important;
+    padding: 0 !important;
+  }
+
+  #dashboard li,
+  #dashboard ul.navigation.actions li {
+    display: inline !important;
+  }
+
+  #dashboard a, #dashboard a:link, #dashboard a:visited,
+  #dashboard ul.navigation.actions a,
+  #dashboard ul.navigation.actions a:visited {
+    display: inline-block !important;
+    font-size: 0.78em !important;
+    margin: 0.15em 0.1em !important;
+    padding: 2px 7px !important;
+  }
+
+  /* Active/current link: match the same compact size as the other dashboard links */
+  #dashboard .current,
+  #dashboard li.current a,
+  #dashboard li.current a:visited {
+    font-size: 0.78em !important;
+    padding: 2px 7px !important;
+  }
+
+  /* Work sub-nav secondary panel */
+  .javascript .work.navigation .secondary {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .javascript .work.navigation .expanded + .secondary,
+  .javascript .work.navigation .secondary li,
+  .javascript .work.navigation .secondary p,
+  .javascript .work.navigation .secondary a {
+    display: block !important;
+  }
+
+  .javascript .work.navigation .secondary a {
+    height: 100% !important;
+    min-height: 1.286em !important;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    white-space: normal !important;
+  }
+
+  .javascript .work.navigation .secondary select {
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+
+
+  /* ============================================================
+     3. HEADER & PRIMARY NAVIGATION
+     ============================================================ */
+
+  #header {
+    background-position: center center !important;
+    position: relative !important;
+    z-index: 100 !important;
+  }
+
+  #header h1 a span {
+    font-size: 1.1em !important;
+  }
+
+  #header h1 sup {
+    font-size: 0.35em !important;
+    padding: 1px 4px !important;
+  }
+
+  #header .primary.navigation > ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    margin: 4px 3.5% !important;
+    padding: 3px 4px !important;
+    width: auto !important;
+  }
+
+  #header .primary.navigation a,
+  #header .primary.navigation a:visited {
+    font-size: 0.72em !important;
+    margin: 4px 3px !important;
+    padding: 5px 9px !important;
+  }
+
+  /* Hide search bar on mobile — Search link in nav still works */
+  #header .search {
+    display: none !important;
+  }
+
+
+  /* ============================================================
+     4. GREETING / USER MENU
+     ============================================================ */
+
+  #greeting a,
+  #greeting a:visited {
+    font-size: 0.72em !important;
+    padding: 4px 8px !important;
+  }
+
+  #greeting .icon img,
+  #greeting .user .icon img {
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+
+  /* ============================================================
+     5. DROPDOWN MENUS
+     ============================================================ */
+
+  .dropdown .menu,
+  #greeting .dropdown .menu,
+  #header .primary.navigation li.dropdown ul.menu {
+    box-sizing: border-box !important;
+    max-width: 90vw !important;
+  }
+
+  /* Dropdown links: allow wrapping so long category names don't overflow */
+  .dropdown .menu a,
+  #header .primary.navigation li.dropdown ul.menu a,
+  #header .primary.navigation li.dropdown ul.menu a:visited {
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* Anchor greeting dropdown to right edge so it doesn't overflow */
+  #greeting .dropdown .menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+
+  /* ============================================================
+     6. MODULE HEADINGS (span.title + span.link)
+     ============================================================ */
+
+  /* Module h3s like "Is it later already? / My History" contain a
+     span.title and span.link. Make it a flex row so the link stays
+     inside the gradient band, right-aligned on its own line. */
+  .module h3.heading {
+    align-items: baseline !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+  }
+
+  .module h3.heading span.title {
+    flex: 1 1 auto !important;
+    text-align: left !important;
+  }
+
+  .module h3.heading span.link {
+    flex: 0 0 100% !important;
+    font-size: 0.78em !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+
+  .module h3.heading span.link a,
+  .module h3.heading span.link a:visited {
+    border-bottom: none !important;
+    color: var(--text-on-dark) !important;
+    text-decoration: underline !important;
+  }
+
+
+  /* ============================================================
+     7. WORK BLURB CARDS
+     ============================================================ */
+
+  li.work.blurb.group,
+  li.bookmark.blurb.group,
+  li.series.blurb.group {
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Stats bar: wrap on small screens */
+  li.work.blurb dl.stats,
+  li.bookmark.blurb dl.stats,
+  li.series.blurb dl.stats {
+    flex-wrap: wrap !important;
+  }
+
+  li.work.blurb dl.stats dt,
+  li.work.blurb dl.stats dd,
+  li.bookmark.blurb dl.stats dt,
+  li.bookmark.blurb dl.stats dd,
+  li.series.blurb dl.stats dt,
+  li.series.blurb dl.stats dd {
+    margin-bottom: 0.25em !important;
+    margin-right: 0.7em !important;
+  }
+
+  /* Reduce side padding inside cards */
+  li.work.blurb .content,
+  li.work.blurb ul.tags,
+  li.work.blurb blockquote,
+  li.work.blurb dl.stats,
+  li.work.blurb .actions,
+  li.bookmark.blurb .content,
+  li.bookmark.blurb ul.tags,
+  li.bookmark.blurb blockquote,
+  li.bookmark.blurb dl.stats,
+  li.bookmark.blurb .actions,
+  li.series.blurb .content,
+  li.series.blurb ul.tags,
+  li.series.blurb blockquote,
+  li.series.blurb dl.stats,
+  li.series.blurb .actions {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  ul.required-tags {
+    flex-wrap: wrap !important;
+  }
+
+  /* datetime: anchor inside the header band, push title down to clear it */
+  li.work.blurb .header.module,
+  li.bookmark.blurb .header.module,
+  li.series.blurb .header.module {
+    min-height: 2em !important;
+    position: relative !important;
+  }
+
+  li.work.blurb p.datetime,
+  li.bookmark.blurb p.datetime,
+  li.series.blurb p.datetime {
+    font-size: 0.72em !important;
+    position: absolute !important;
+    right: 8px !important;
+    top: 6px !important;
+    white-space: nowrap !important;
+  }
+
+  li.work.blurb .header.module h4.heading,
+  li.bookmark.blurb .header.module h4.heading,
+  li.series.blurb .header.module h4.heading,
+  li.work.blurb .header.module h5.fandoms,
+  li.bookmark.blurb .header.module h5.fandoms,
+  li.series.blurb .header.module h5.fandoms,
+  li.work.blurb .header.module .byline,
+  li.bookmark.blurb .header.module .byline,
+  li.series.blurb .header.module .byline {
+    margin-right: 0 !important;
+    margin-top: 1.4em !important;
+    padding-right: 0 !important;
+  }
+
+  /* Summary blockquotes: tighter margin */
+  blockquote.userstuff.summary,
+  .blurb blockquote.userstuff.summary {
+    margin: 0.5em 6px !important;
+  }
+
+
+  /* ============================================================
+     8. TAG PILLS
+     ============================================================ */
+
+  .tags a, .tags a:visited,
+  ul.tags a,
+  dl.meta a.tag {
+    font-size: 0.76em !important;
+    padding: 2px 7px !important;
+  }
+
+  /* display: contents removes the li from flex flow so each pill <a>
+     sizes to its content rather than stretching full row width */
+  ul.tags li,
+  .tags li {
+    display: contents !important;
+  }
+
+  /* Fandom tag pill inside h2.heading (e.g. "6 Works in Dark Skies") */
+  h2.heading a.tag,
+  h2.heading a.tag:visited {
+    font-size: 0.76em !important;
+    padding: 2px 8px !important;
+  }
+
+
+  /* ============================================================
+     9. BUTTONS & ACTIONS
+     ============================================================ */
+
+  .actions a, .actions a:link,
+  .action, .action:link,
+  .actions button,
+  input[type="submit"],
+  button {
+    font-size: 0.8em !important;
+    min-height: 0 !important;
+    padding: 4px 10px 3px !important;
+  }
+
+  /* Chapter prev/next: slightly more prominent as primary fic navigation */
+  .chapter.navigation .next a,
+  .chapter.navigation .previous a,
+  #chapters .navigation .next a,
+  #chapters .navigation .previous a {
+    font-size: 0.85em !important;
+    padding: 5px 12px 4px !important;
+  }
+
+  /* Work action bar: wrap onto multiple lines */
+  #workskin ~ .work.navigation.actions,
+  .work.navigation.actions {
+    flex-wrap: wrap !important;
+    padding: 0.375em 0.5em !important;
+  }
+
+  #workskin ~ .work.navigation.actions li,
+  .work.navigation.actions li {
+    margin: 0.2em 0.2em !important;
+  }
+
+
+  /* ============================================================
+     10. WORK PAGE — PROSE READING
+     ============================================================ */
+
+  #workskin {
+    box-sizing: border-box !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .userstuff,
+  .system .userstuff {
+    max-width: 100% !important;
+    padding: 1em 0.75em !important;
+  }
+
+  /* Work meta block: clear float, full width, stack above prose */
+  dl.work.meta.group {
+    box-sizing: border-box !important;
+    clear: both !important;
+    float: none !important;
+    margin-bottom: 1em !important;
+    width: 100% !important;
+  }
+
+  /* Stats sub-dl: two-column grid, labels left-aligned beside values */
+  dl.work.meta.group dd.stats dl.stats {
+    display: grid !important;
+    grid-template-columns: max-content 1fr !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt,
+  dl.work.meta.group dd.stats dl.stats dd {
+    align-items: center !important;
+    border: none !important;
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0.15em 0.4em 0.15em 0 !important;
+    text-align: left !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt {
+    font-size: 0.8em !important;
+  }
+
+  #workskin .preface.group,
+  .work.meta.group ~ .preface.group,
+  #chapters .preface.group {
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0.5em 0.75em !important;
+    width: auto !important;
+  }
+
+  #jump-to-chapter,
+  #jump-to-chapter select {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  #kudos {
+    padding: 0.5em 0.75em !important;
+    text-align: left !important;
+  }
+
+  /* Download dropdown: prevent overflow off screen edge */
+  .download.module .download ul.expandable.secondary {
+    box-sizing: border-box !important;
+    left: auto !important;
+    max-width: 90vw !important;
+    right: 0 !important;
+  }
+
+
+  /* ============================================================
+     11. COMMENTS
+     ============================================================ */
+
+  li.comment {
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  li.comment .icon img {
+    height: 60px !important;
+    max-width: 60px !important;
+    width: 60px !important;
+  }
+
+  li.comment .actions a,
+  li.comment .actions a:visited {
+    font-size: 0.78em !important;
+    min-height: 0 !important;
+    padding: 3px 8px !important;
+  }
+
+  /* Byline heading (inbox, comments): flex column so author+work link
+     and timestamp sit on separate lines rather than crammed inline */
+  h4.heading.byline {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  h4.heading.byline span.posted.datetime {
+    color: var(--text-muted) !important;
+    display: block !important;
+    font-size: 0.75em !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    margin-top: 0.2em !important;
+  }
+
+
+  /* ============================================================
+     12. FORMS & INPUTS
+     ============================================================ */
+
+  form.single input[type="text"] {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  form.single span.submit {
+    display: block !important;
+    text-align: right !important;
+  }
+
+  form.single ul.autocomplete {
+    display: block !important;
+  }
+
+  form.single .autocomplete li.input {
+    margin-right: 0 !important;
+  }
+
+  /* Text inputs only — submit/button sizing handled in section 9 */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    min-height: 38px !important;
+    width: 100% !important;
+  }
+
+  select {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+
+
+  /* ============================================================
+     13. NOTICES & ALERTS
+     ============================================================ */
+
+  .notice, p.notice, div.notice,
+  .caution, p.caution,
+  .error, p.error, div.error, ul.errors,
+  .success, p.success, div.success {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     14. FRONT PAGE (SPLASH)
+     ============================================================ */
+
+  .logged-in .splash > .module {
+    box-sizing: border-box !important;
+    width: 48.5% !important;
+  }
+
+  .logged-in .splash > div:nth-of-type(odd) {
+    margin-left: 0 !important;
+    margin-right: 1.5% !important;
+  }
+
+  .logged-in .splash > div:nth-of-type(even) {
+    margin-left: 1.5% !important;
+    margin-right: 0 !important;
+  }
+
+
+  /* ============================================================
+     15. INDEX PAGES (Media, Fandoms, Collections)
+     ============================================================ */
+
+  #main.media-index li.medium.listbox.group {
+    margin: 0 0.4em 1.2em 0.4em !important;
+  }
+
+  /* Fandoms index: letter cards have width: 65% on desktop which
+     causes overflow on mobile — stretch to full width */
+  #main.fandoms-index li.letter.listbox.group {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Fandom names: override nowrap so long names wrap instead of clipping */
+  #main.fandoms-index ol.index.group li,
+  #main.fandoms-index ul.tags.index.group li,
+  #main.fandoms-index ol.index.group li a,
+  #main.fandoms-index ul.tags.index.group li a,
+  #main.fandoms-index ol.index.group li a:visited,
+  #main.fandoms-index ul.tags.index.group li a:visited,
+  #main.fandoms-index ol.index.group li a:hover,
+  #main.fandoms-index ul.tags.index.group li a:hover {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  li.own.collection.picture.blurb.group,
+  li.collection.picture.blurb.group,
+  li.skins.own.picture.blurb.group {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     16. USER PROFILE
+     ============================================================ */
+
+  div.user.home,
+  div.user.profile {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Reset the 100px left indent reserved for the desktop avatar */
+  .user.home h2.heading,
+  .user.profile h2.heading {
+    font-size: 1.3em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 8px 3.5% !important;
+    text-align: left !important;
+  }
+
+  /* Avatar: out of absolute flow, centred above the banner */
+  #main .user.home .icon,
+  #main .user.profile .icon,
+  #main .userpic {
+    display: block !important;
+    margin: 0 auto 0.75em auto !important;
+    position: static !important;
+  }
+
+  .user.home div.primary.header.module,
+  .user.profile div.primary.header.module {
+    padding-top: 0.5em !important;
+  }
+
+  .user.home .wrapper,
+  .user.profile .wrapper,
+  .user.home .bio.module,
+  .user.profile .bio.module {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    padding: 0.75em 1em !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     17. READING HISTORY
+     ============================================================ */
+
+  li.reading.work.blurb.group div.user.module.group {
+    font-size: 0.75em !important;
+    padding: 0.5em !important;
+  }
+
+  li.reading.work.blurb.group div.user.module.group input[type="submit"] {
+    font-size: 0.75em !important;
+    margin-left: 0.5em !important;
+    min-height: 0 !important;
+    padding: 2px 8px !important;
+  }
+
+
+  /* ============================================================
+     18. ADMIN / NEWS POST
+     ============================================================ */
+
+  /* Hide the large logo icon on admin/news pages.
+     Scoped to #main so it doesn't affect user profile pages. */
+  #main .primary.header.module .icon {
+    display: none !important;
+  }
+
+  #main .primary.header.module ul.navigation.actions {
+    clear: both !important;
+    display: block !important;
+    margin-top: 0.5em !important;
+    width: 100% !important;
+  }
+
+  #main .primary.header.module ul.navigation.actions li {
+    display: block !important;
+    margin-bottom: 0.5em !important;
+  }
+
+  #main .primary.header.module ul.navigation.actions form p {
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  #main .primary.header.module ul.navigation.actions form label {
+    font-size: 0.85em !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.2em !important;
+    margin-top: 0.5em !important;
+  }
+
+  #main .primary.header.module ul.navigation.actions form select {
+    margin-bottom: 0.25em !important;
+    width: 100% !important;
+  }
+
+  dl.inspired.index.group {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     19. FOOTER
+     ============================================================ */
+
+  #footer {
+    box-sizing: border-box !important;
+    padding: 1em 3.5% !important;
+    width: 100% !important;
+  }
+
+  #footer * {
+    box-sizing: border-box !important;
+    float: none !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #footer ul.navigation.actions {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  #footer ul.navigation.actions > li {
+    display: block !important;
+    margin-bottom: 1.5em !important;
+    width: 100% !important;
+  }
+
+  #footer ul.navigation.actions > li h4 {
+    font-size: 1em !important;
+    margin-bottom: 0.5em !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  #footer ul.navigation.actions > li ul {
+    display: block !important;
+    line-height: 2 !important;
+    width: 100% !important;
+  }
+
+  #footer ul.navigation.actions > li ul li,
+  #footer .menu li {
+    display: inline !important;
+    margin: 0 0.3em 0 0 !important;
+  }
+
+  #footer ul.navigation.actions > li ul li a,
+  #footer .menu li a {
+    display: inline !important;
+    vertical-align: baseline !important;
+  }
+
+
+  /* ============================================================
+     20. PHONE — SINGLE COLUMN (max-width: 30em)
+     ============================================================ */
+
+  @media only screen and (max-width: 30em) {
+    #main.media-index li.medium.listbox.group {
+      box-sizing: border-box !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+    }
+
+    .logged-in .splash > .module,
+    .splash .favorite,
+    .splash .news,
+    .splash .module {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+    }
+  }
+
+}
+
+
+/* ============================================================
+   NARROW PHONES — max-width: 42em
+   Counteracts AO3's own narrow CSS which would otherwise
+   undo parts of the 62em block above.
+   ============================================================ */
+
+@media only screen and (max-width: 42em), handheld {
+
+
+  /* ============================================================
+     1. GLOBAL / RESET
+     ============================================================ */
+
+  html {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    background-color: #e8e4ec !important;
+    background: linear-gradient(to bottom, #f5f0f5 0%, #ede8f0 30%, #e8e4ec 60%, #ddeef2 100%) !important;
+    overflow-x: hidden !important;
+  }
+
+  /* AO3 narrow CSS sets h1/h2/h3 to word-break: break-all as a fallback —
+     override to break-word only so headings don't look broken. */
+  h1, h2, h3 {
+    word-break: break-word !important;
+  }
+
+
+  /* ============================================================
+     2. LAYOUT
+     ============================================================ */
+
+  #main, #main.dashboard {
+    box-sizing: border-box !important;
+    padding-left: 3.5% !important;
+    padding-right: 3.5% !important;
+    width: auto !important;
+  }
+
+
+  /* ============================================================
+     3. DASHBOARD
+     ============================================================ */
+
+  /* AO3 narrow reduces dashboard border widths to 7px —
+     re-apply Breath of Life's compact inline pill layout. */
+  #dashboard, #dashboard.own {
+    border-radius: 0.25em !important;
+    padding: 0.25em 0 !important;
+  }
+
+  #dashboard ul,
+  #dashboard ul.navigation.actions {
+    border: none !important;
+    display: inline !important;
+    padding: 0 !important;
+  }
+
+  #dashboard li,
+  #dashboard ul.navigation.actions li {
+    display: inline !important;
+  }
+
+  #dashboard a, #dashboard a:link, #dashboard a:visited,
+  #dashboard ul.navigation.actions a,
+  #dashboard ul.navigation.actions a:visited {
+    display: inline-block !important;
+    font-size: 0.78em !important;
+    margin: 0.15em 0.1em !important;
+    padding: 2px 7px !important;
+  }
+
+  #dashboard .current,
+  #dashboard li.current a,
+  #dashboard li.current a:visited {
+    font-size: 0.78em !important;
+    padding: 2px 7px !important;
+  }
+
+
+  /* ============================================================
+     4. WORK BLURB CARDS
+     ============================================================ */
+
+  /* AO3 narrow floats blurb dl.tags dt/dd — reset to block */
+  .blurb dl.tags dt,
+  .blurb dl.tags dd {
+    float: none !important;
+    width: auto !important;
+  }
+
+  li.work.blurb.group,
+  li.bookmark.blurb.group,
+  li.series.blurb.group {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     5. TAG PILLS
+     ============================================================ */
+
+  ul.tags li,
+  .tags li {
+    display: contents !important;
+  }
+
+  .tags a, .tags a:visited,
+  ul.tags a,
+  dl.meta a.tag {
+    font-size: 0.76em !important;
+    padding: 2px 7px !important;
+  }
+
+
+  /* ============================================================
+     6. WORK PAGE
+     ============================================================ */
+
+  /* AO3 narrow resets workskin to margin: auto — re-apply our rule */
+  #workskin {
+    box-sizing: border-box !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .userstuff,
+  .system .userstuff {
+    max-width: 100% !important;
+    padding: 1em 0.75em !important;
+  }
+
+  dl.work.meta.group {
+    box-sizing: border-box !important;
+    clear: both !important;
+    float: none !important;
+    margin-bottom: 1em !important;
+    width: 100% !important;
+  }
+
+  /* AO3 narrow floats dl.meta dt/dd — reset for our grid layout */
+  dl.meta dt, dl.meta dd {
+    float: none !important;
+    width: auto !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats {
+    display: grid !important;
+    grid-template-columns: max-content 1fr !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt,
+  dl.work.meta.group dd.stats dl.stats dd {
+    align-items: center !important;
+    border: none !important;
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0.15em 0.4em 0.15em 0 !important;
+    text-align: left !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt {
+    font-size: 0.8em !important;
+  }
+
+
+  /* ============================================================
+     7. COMMENTS
+     ============================================================ */
+
+  /* AO3 narrow sets comment icon to 55px — keep our 60px */
+  .comment .icon,
+  li.comment .icon img {
+    height: 60px !important;
+    max-width: 60px !important;
+    width: 60px !important;
+  }
+
+  li.comment {
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  h4.heading.byline {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  h4.heading.byline span.posted.datetime {
+    color: var(--text-muted) !important;
+    display: block !important;
+    font-size: 0.75em !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    margin-top: 0.2em !important;
+  }
+
+
+  /* ============================================================
+     8. FORMS & INPUTS
+     ============================================================ */
+
+  /* AO3 narrow forces form.filters to width: 100% */
+  .filtered .index,
+  form.filters,
+  form dd, form dt {
+    box-sizing: border-box !important;
+    float: none !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    min-height: 38px !important;
+    width: 100% !important;
+  }
+
+  select {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+
+  /* ============================================================
+     9. BUTTONS & ACTIONS
+     ============================================================ */
+
+  .actions a, .actions a:link,
+  .action, .action:link,
+  .actions button,
+  input[type="submit"],
+  button {
+    font-size: 0.8em !important;
+    min-height: 0 !important;
+    padding: 4px 10px 3px !important;
+  }
+
+
+  /* ============================================================
+     10. FRONT PAGE (SPLASH)
+     ============================================================ */
+
+  /* AO3 narrow makes all splash modules full width */
+  .splash div.module,
+  .logged-in .splash div.module,
+  .splash .favorite,
+  .splash .news,
+  .logged-in .splash > .module {
+    box-sizing: border-box !important;
+    clear: both !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     11. INDEX PAGES
+     ============================================================ */
+
+  #main.fandoms-index li.letter.listbox.group {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  #main.fandoms-index ol.index.group li,
+  #main.fandoms-index ul.tags.index.group li,
+  #main.fandoms-index ol.index.group li a,
+  #main.fandoms-index ul.tags.index.group li a,
+  #main.fandoms-index ol.index.group li a:visited,
+  #main.fandoms-index ul.tags.index.group li a:visited {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  li.own.collection.picture.blurb.group,
+  li.collection.picture.blurb.group,
+  li.skins.own.picture.blurb.group {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+
+  /* ============================================================
+     12. USER PROFILE
+     ============================================================ */
+
+  div.user.home,
+  div.user.profile {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .user.home h2.heading,
+  .user.profile h2.heading {
+    font-size: 1.2em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 8px 3.5% !important;
+    text-align: left !important;
+  }
+
+  #main .user.home .icon,
+  #main .user.profile .icon,
+  #main .userpic {
+    display: block !important;
+    margin: 0 auto 0.75em auto !important;
+    position: static !important;
+  }
+
+  .user.home .wrapper,
+  .user.profile .wrapper,
+  .user.home .bio.module,
+  .user.profile .bio.module {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    padding: 0.5em 0.75em !important;
+    width: 100% !important;
+  }
+
+}
