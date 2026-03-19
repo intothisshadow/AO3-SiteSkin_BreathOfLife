@@ -47,6 +47,7 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
 # Last Updated
 
+- Mark 19, 2026 - New site skin page: parent skin dropdown getting cut off fixed
 - March 17, 2026 - Mobile add-on published, desktop theme updated
 - March 4, 2026 - Desktop skin published
 
